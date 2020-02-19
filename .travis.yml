@@ -15,11 +15,12 @@ before_script:
 cache:
   yarn: true
   directories:
+
     - node_modules
 
 script:
-    ng lint
-    ng test
+  - ng lint
+  - ng test
   - ng build --prod
 
 
