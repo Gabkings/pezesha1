@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { TodayService } from './today.service';
+import {Component, OnInit} from '@angular/core';
+import {TodayService} from './today.service';
+import {DataInterface} from './data-interface';
 
 
 @Component({
@@ -10,36 +11,35 @@ import { TodayService } from './today.service';
 export class TodayComponent implements OnInit {
   lat;
   lon;
-  weather;
+  weather: DataInterface;
 
 
-  constructor(private weatherService: TodayService) { }
+  constructor(private weatherService: TodayService) {
+  }
 
   ngOnInit(): void {
     this.getLocation();
   }
 
-  getLocation(){
-    if('geolocation' in navigator){
-      navigator.geolocation.watchPosition((success) =>{
+  getLocation() {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.watchPosition((success) => {
         this.lat = success.coords.latitude;
         this.lon = success.coords.longitude;
         this.weatherService.getWeatherOutByChords(this.lat, this.lon)
-        .subscribe(data=>{
-          this.weather = data;
-          console.log(this.weather)
-        });
+          .subscribe(data => {
+            this.weather = data as DataInterface;
+
+          });
       });
     }
   }
 
-  getCity(city: any){
+  getCity(city: any) {
     this.weatherService.getWeatherOutByCity(city)
-    .subscribe(data =>{
-      this.weather = data;
-      // this.lat = data.coord.lat;
-      // this.lon = data.coord.lon;
-    })
+      .subscribe(data => {
+        this.weather = data as DataInterface;
+      });
   }
 
 }

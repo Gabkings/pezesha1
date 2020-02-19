@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodayComponent } from './today/today.component';
 import { HttpClientModule } from '@angular/common/http';
+import {TodayService} from './today/today.service';
 
 
 
@@ -19,7 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    TodayService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

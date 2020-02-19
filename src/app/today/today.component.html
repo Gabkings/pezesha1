@@ -4,39 +4,39 @@
             <div class="input-group mt-5">
                 <input type="text" class="form-control" placeholder="City Name" #userInput>
                 <div class="input-group-append">
-                    <button class="input-group-text btn btn-outline-primary" (click)="getCity(userInput.value)">Search</button>
+                    <button id="search" class="input-group-text btn btn-outline-primary" (click)="getCity(userInput.value)">Search</button>
                 </div>
             </div>
             <h1>Current weather in your location</h1>
-            <p>weather in {{weather.city.name}}, {{weather.city.country}}</p>
+            <p>weather in {{weather?.city?.name}}, {{weather?.city?.country}}</p>
             <table class="stripped table">
                 <tr>
                     <th>Humidity</th>
-                    <th>{{weather.list[0].main.humidity}}</th>
+                    <th>{{weather?.list[0].main.humidity}}</th>
                 </tr>
                 <tr>
                     <th>Pressure</th>
-                    <th>{{weather.list[0].main.pressure}}</th>
+                    <th>{{weather?.list[0].main.pressure}}</th>
                 </tr>
                 <tr>
                     <th>Sea Level</th>
-                    <th>{{weather.list[0].main.sea_level}}</th>
+                    <th>{{weather?.list[0].main.sea_level}}</th>
                 </tr>
                 <tr>
                     <th>Temperature</th>
-                    <th>{{weather.list[0].main.temp}}</th>
+                    <th>{{weather?.list[0].main.temp}}</th>
                 </tr>
                 <tr>
                     <th>Weather</th>
-                    <th>{{weather.list[0].weather[0].description}}</th>
+                    <th>{{weather?.list[0].weather[0].description}}</th>
                 </tr>
                 <tr>
                     <th>Wind</th>
-                    <th>{{weather.list[0].wind.speed}}</th>
+                    <th>{{weather?.list[0].wind.speed}}</th>
                 </tr>
                 <tr>
                     <th>Temperature</th>
-                    <th>{{weather.list[0].main.temp}}</th>
+                    <th>{{weather?.list[0].main.temp}}</th>
                 </tr>
             </table>
         </div>
