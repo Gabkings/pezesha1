@@ -3,6 +3,13 @@
 
 module.exports = function (config) {
   config.set({
+    browsers: ['MyHeadlessChrome'],
+    customLaunchers: {
+      MyHeadlessChrome: {
+        base: 'ChromeHeadless',
+        flags: ['--disable-extensions', '--disable-translate','--remote-debuging-port=9223','--no-sandbox']
+      }
+    },
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
