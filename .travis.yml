@@ -18,6 +18,8 @@ cache:
     - node_modules
 
 script:
+    ng lint
+    ng test
   - ng build --prod
 
 
